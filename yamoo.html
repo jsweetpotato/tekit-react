@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta content="charset=UTF-8" />
+    <title>리액트 펀더멘탈</title>
+    <link rel="icon" href="assets/favicon.svg" />
+    <script type="module">
+      // React 모듈 불러오기
+      import React from "https://esm.sh/react";
+      // console.log(React);
+
+      // 리액트 요소 생성
+      // <h1>리액트</h1>
+      // <p>리액트는 가장 인기있는 프론트엔드 개발 도구입니다.</p>
+      // React API
+      const h1Element = React.createElement(
+        // type, // 요소 이름(문자)
+        "h1",
+        // props, // 속성 집합(객체)
+        {},
+        // ...children // 중첩된 요소 또는 텍스트
+        "리액트"
+      );
+
+      const pElement = React.createElement(
+        "p",
+        {},
+        "리액트는 UI 구축을 위한 자바스크립트 라이브러리입니다."
+      );
+
+      // console.log(pElement);
+
+      // 나도 리액트처럼!!
+      function createElement(type, props, ...children) {
+        return { $$typeof: Symbol("euid.element"), type, props: { ...props, children } };
+      }
+
+      // 리액트 요소 === 객체 → { $$typeof: 'Symbol(euid.element)', type, props: { children } }
+      const myElement = createElement(
+        "div",
+        { id: "app", "data-type": "HTMLDivElement" },
+        createElement("span", {}, "Hello React")
+      );
+
+      console.log(myElement);
+    </script>
+  </head>
+  <body>
+    <noscript>이 앱을 사용하려면 자바스크립트 활성화가 필요합니다.</noscript>
+
+    <div id="root">
+      <h1></h1>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="./assets/favicon.svg" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>리액트 펀더멘탈</title>
+    <script type="module" defer>
+      const title = "리액트 펀더멘탈";
+      document.title = title;
+
+      // 1. 데이터 분리 후 선언
+      const data = {
+        header: "리액트는",
+        pragraph: "리액트는 사용자 인터페이스 구축을 위한 JavsScript 오픈소스 라이브러리입니다.",
+      };
+
+      const $app = document.querySelector("#app");
+
+      // 2. 동적 렌더링
+      $app.insertAdjacentHTML(
+        "beforeend",
+        `
+        <h1>${data.header}</h1>
+        <p>${data.pragraph}</p>
+        `
+      );
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+</html>
