@@ -1,8 +1,17 @@
 {
+<<<<<<< HEAD
   "scripts": {
     "dev": "serve"
   },
   "devDependencies": {
     "serve": "^14.2.1"
   }
+=======
+	"scripts": {
+		"dev": "serve"
+	},
+	"devDependencies": {
+		"serve": "14.2.1"
+	}
+>>>>>>> upstream/lecture
 }
