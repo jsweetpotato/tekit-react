@@ -12,12 +12,8 @@ const data = {
 
 // const greet = `안녕~ ${data.greetingMessage[1]}`;
 
-// 데이터 전환
-
-let mode = "data";
-
 // react는 slot 대신 중괄호를 쓴다. -> react명세에는 slot이라는 단어를 쓰진 않지만 웹 표준에서 slot이라는 키워드역할을 한다 할 수 있다.
-const createApp = () => (
+const createApp = (data) => (
   <div id="app">
     <h1>
       {data.greetingMessage[0]}
@@ -32,16 +28,26 @@ const rootElement = document.getElementById("root");
 const reactDomRoot = createRoot(rootElement);
 
 /* 함수 실행 => JSX -> React.createElement() -> 리액트 요소 : ReactElement */
-reactDomRoot.render(createApp(mode === "data" ? data : anotherData));
+function render(mode = "data") {
+  reactDomRoot.render(createApp(mode === "data" ? data : anotherData));
+}
+
+render();
 
 // 버튼 이벤트 핸들링
 const button = document.querySelector("button");
 
-const handleChangeMessage = () => {
-  if (mode.includes("data")) mode = "anotherData";
-  else mode = "data";
+// 데이터 전환을 위한 상태 변수
+let mode = "data"; // 'data' | 'anotherData'
 
-  console.log(mode);
+const handleChangeMessage = () => {
+  if (mode.includes("data")) {
+    mode = "anotherData";
+  } else {
+    mode = "data";
+  }
+
+  render(mode);
 };
 
 button.addEventListener("click", handleChangeMessage);
