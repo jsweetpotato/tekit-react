@@ -16,17 +16,12 @@
       src="https://klesun-misc.github.io/TypeScript/lib/typescriptServices.js"
       crossorigin
     ></script>
-    <script type="module">
-      import { loadModule } from "https://klesun.github.io/ts-browser/src/ts-browser.js";
-      console.log("loadModule: ", loadModule);
-      loadModule("./src/lecture/09-typescript-runtime.tsx", {
-        js: ts.JsxEmit.React,
-      });
-    </script>
+    <script type="module" src="./src/main.jsx"></script>
   </head>
   <body>
     <noscript>이 앱을 사용하려면 자바스크립트 활성화가 필요합니다.</noscript>
 
+    <button type="button">메세지 변경</button>
     <div id="root"></div>
   </body>
 </html>
