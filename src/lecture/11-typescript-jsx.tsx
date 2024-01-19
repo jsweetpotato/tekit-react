@@ -1,12 +1,11 @@
-// @ts-ignore -> 모듈 없는거 에러 방지
-const { createRoot } = ReactDOM;
+import React from "react";
+import ReactDOM from "react-dom";
 
-// @ts-nocheck
 const createApp = () => {
   return (
     <div id="app">
       <h1>
-        안녕
+        안녕!
         <br />
         리액트
       </h1>
@@ -14,7 +13,8 @@ const createApp = () => {
     </div>
   );
 };
+
 const rootElement = document.getElementById("root") as HTMLElement;
 
-const root = createRoot(rootElement);
+const root = ReactDOM.createRoot(rootElement);
 root.render(createApp());
