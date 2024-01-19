@@ -6,19 +6,15 @@ const data = {
   message: "리액트는 사용자 인터페이스 구축을 위한 JavaScript 오픈소스 라이브러리입니다.",
 };
 
-const createApp = ({ greetingMessage }) => {
+const createApp = (data) => {
   return (
     <div id="app">
       <h1>
-        {greetingMessage[0].toUpperCase()}
-        <br />
-        {greetingMessage[1].toUpperCase()}
+        {getGreetMessage()}
+        {/* JSX 주석(comment) */}
+        {/* <br /> */} {data.greetingMessage[1].toUpperCase()}
       </h1>
       <p>{data.message}</p>
-      <form>
-        <input aria-label="중요도" type="range" />
-        <button type="submit">보내기</button>
-      </form>
     </div>
   );
 };
@@ -26,4 +22,4 @@ const createApp = ({ greetingMessage }) => {
 const rootElement = document.getElementById("root");
 const reactDomRoot = createRoot(rootElement);
 
-reactDomRoot.render(createApp(data, true));
+reactDomRoot.render(createApp(data));
