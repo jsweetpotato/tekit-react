@@ -21,10 +21,31 @@ const createApp = (data, options = {}) => {
       </h1>
       <p>{data.message}</p>
       <form>
+        {/* html과 예약어를 다르게 써줘야 한다. class -> className, for -> htmlFor*/}
         <label htmlFor="searchKeyword" className="sr-only">
           검색
         </label>
+
+        {/* html은 대소문자를 구분하지 않는다. JSX는 구분한다. */}
+        {/* <FORM></FORM> FORM is not defined */}
+
         <input id="searchKeyword" type="search" placeholder="검색" />
+
+        {/* 밑에 처럼 camelCase로 사용하면 컴파일이 안된다. 그냥 html 쓸때처럼 하이픈 써도 data나 aria는 알아서 잘 해준다. */}
+        {/* <input dataIdentity="searchKeyword" type="search" placeholder="검색" ariaLabel="키워드 검색" /> */}
+
+        {/* HTML은 대소문자를 구분하지 않는다.  */}
+        {/* HTML에서 인라인 스타일은 CSS 선언을 문자 값으로 연이어 설정합니다. */}
+        {/* <FORM style="margin-block: 8px; border-radius: 4px; padding: 16px; background-color: #f0f6f8">
+        </FORM> */}
+        {/* 인라인 스타일은 객체로 전달해야한다. */}
+        <input
+          style={styles.input}
+          data-identity="searchKeyword"
+          type="search"
+          placeholder="검색"
+          aria-label="키워드 검색"
+        />
       </form>
     </div>
   );
@@ -42,3 +63,16 @@ reactDomRoot.render(
     max: 20,
   })
 );
+
+const styles = {
+  form: {
+    "margin=block": "8px",
+    "border-radius": "4px",
+    padding: "16px",
+    "background-color": "#f0f6f8",
+  },
+  input: {
+    padding: "4px 6px",
+    color: "#3d3b3f",
+  },
+};
