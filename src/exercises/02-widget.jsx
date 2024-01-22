@@ -1,0 +1,43 @@
+import "./02-widget.css";
+
+import React from "https://esm.sh/react";
+import { createRoot } from "https://esm.sh/react-dom";
+
+function bodyStyling() {
+  document.body.style.backgroundColor = "#f4f6f8";
+}
+
+bodyStyling();
+
+const weather = {
+  currentTemp: -0.9,
+  prevTemp: -2.2,
+};
+
+const renderWidget = ({ currentTemp, prevTemp }) => {
+  const getTemperatureState = () => {
+    const absCurrentTemp = Math.abs(currentTemp);
+    const absPrevTemp = Math.abs(prevTemp);
+
+    if (absCurrentTemp > absPrevTemp) {
+      return `어제보다 ${Math.abs(currentTemp - prevTemp).toFixed(1)}° 높아요`;
+    } else if (absPrevTemp > absCurrentTemp) {
+      return `어제보다 ${Math.abs(prevTemp - currentTemp).toFixed(1)}° 낮아요`;
+    } else {
+      return "어제와 동일해요";
+    }
+  };
+
+  return (
+    <article>
+      <img src="/src/assets/partly cloudy.svg" alt="맑음" />
+      <div role="group">
+        <h2 className="sr-only">오늘의 날씨</h2>
+        <p>{currentTemp}°</p>
+        <p>{getTemperatureState()}</p>
+      </div>
+    </article>
+  );
+};
+
+createRoot(document.getElementById("root")).render(renderWidget({ ...weather }));
