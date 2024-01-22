@@ -1,5 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
+import App from "./components/App.class"; // js 관련된것만 뒤에 생략 가능
 
 // React.Component Type 1 :: class syntax
 class App {
