@@ -20,6 +20,37 @@
   clip-path: 0 0 0 0;
 }
 
+article {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  inline-size: max-content;
+  padding: 16px 8px 16px 16px;
+  box-shadow: var(--shadow--100);
+  border-radius: 6px;
+
+  &:hover {
+    outline: 2px solid var(--gray--100);
+  }
+}
+
 div[role="group"] {
   color: var(--gray--950);
+}
+
+img {
+  inline-size: 50px;
+  block-size: 50px;
+}
+
+.current-temp {
+  margin-block: 0 4px;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--gray--950, black);
+}
+
+.temp-state {
+  margin: 0;
+  font-size: 0.75rem;
 }

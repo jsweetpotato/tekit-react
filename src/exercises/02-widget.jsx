@@ -31,11 +31,11 @@ const renderWidget = ({ currentTemp, prevTemp }) => {
   return (
     <article>
       <h2 className="sr-only">오늘의 날씨 정보</h2>
-      <img src="/src/assets/partly cloudy.svg" alt="맑음" />
       <div role="group">
-        <p>{currentTemp}°</p>
-        <p>{getTemperatureState()}</p>
+        <p className="current-temp">{currentTemp}°</p>
+        <p className="temp-state">{getTemperatureState()}</p>
       </div>
+      <img src="/src/assets/partly cloudy.svg" alt="맑음" />
     </article>
   );
 };
