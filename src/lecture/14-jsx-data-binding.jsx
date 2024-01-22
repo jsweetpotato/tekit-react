@@ -22,10 +22,10 @@ const createApp = ({ greetingMessage: [firstMessage, lastMessage], message }, op
 
         {/* 이렇게 해야함 */}
         <input
+          type="range"
           min={options.min}
           max={options.max}
           step={options.step}
-          type="range"
           aria-label={options.label}
           disabled={options.isDisabled}
         />

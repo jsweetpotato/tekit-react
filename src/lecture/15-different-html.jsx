@@ -36,9 +36,17 @@ const createApp = (data, options = {}) => {
 
         {/* HTML은 대소문자를 구분하지 않는다.  */}
         {/* HTML에서 인라인 스타일은 CSS 선언을 문자 값으로 연이어 설정합니다. */}
+
         {/* <FORM style="margin-block: 8px; border-radius: 4px; padding: 16px; background-color: #f0f6f8">
         </FORM> */}
         {/* 인라인 스타일은 객체로 전달해야한다. */}
+        <input
+          style={{ padding: "4px 6px", color: "#3d3b3f" }}
+          data-identity="searchKeyword"
+          type="search"
+          placeholder="검색"
+          aria-label="키워드 검색"
+        />
         <input
           style={styles.input}
           data-identity="searchKeyword"
@@ -54,16 +62,6 @@ const createApp = (data, options = {}) => {
 const rootElement = document.getElementById("root");
 const reactDomRoot = createRoot(rootElement);
 
-reactDomRoot.render(
-  createApp(data, {
-    label: "중요도",
-    isDisabled: false,
-    min: 0,
-    step: 1,
-    max: 20,
-  })
-);
-
 const styles = {
   form: {
     "margin=block": "8px",
@@ -76,3 +74,13 @@ const styles = {
     color: "#3d3b3f",
   },
 };
+
+reactDomRoot.render(
+  createApp(data, {
+    label: "중요도",
+    isDisabled: false,
+    min: 0,
+    step: 1,
+    max: 20,
+  })
+);
