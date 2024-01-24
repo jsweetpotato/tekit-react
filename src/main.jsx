@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "https://esm.sh/react";
 import { createRoot } from "https://esm.sh/react-dom";
 
@@ -27,3 +28,17 @@ const rootElement = document.getElementById("root");
 const reactDomRoot = createRoot(rootElement);
 
 reactDomRoot.render(createApp(data, true));
+=======
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import App from './app/App';
+
+const rootElement = document.getElementById('root');
+const root = createRoot(rootElement);
+
+root.render(
+  <StrictMode>
+    <App />
+  </StrictMode>
+);
+>>>>>>> lecture

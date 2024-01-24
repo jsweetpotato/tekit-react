@@ -1,2 +1,9 @@
+.vscode
 .DS_Store
+<<<<<<< HEAD
 node_modules
+=======
+.exercises
+node_modules
+template.md
+>>>>>>> lecture
